@@ -3,7 +3,7 @@ import {compare} from 'bcryptjs';
 import { getRepository} from 'typeorm';
 import { sign, verify } from 'jsonwebtoken';
 import authConfig from '../config/auth';
-
+import AppError from '../errors/AppError';
 
 interface Request{
     email: string,
@@ -25,7 +25,7 @@ class AuthenticateUserService{
 
         if (!user)
         {
-            throw new Error('Incorrect email/password combination.');
+            throw new AppError('Incorrect email/password combination.', 401);
         }
 
         // user.password - Senha criptografada
@@ -35,7 +35,7 @@ class AuthenticateUserService{
 
         if (!passwordMatched)
         {
-            throw new Error('Incorrect email/password combination.');
+            throw new AppError('Incorrect email/password combination.', 401);
         }
         
         const { secret, expiresIn } = authConfig.jwt;
