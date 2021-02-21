@@ -1,6 +1,6 @@
-import 'reflect-metadata';
-import { container } from 'tsyringe';
 
+import { container } from 'tsyringe';
+import 'reflect-metadata';
 
 import IAppointmentsRepository from '@modules/appointments/repositories/IApointmentsRepository';
 import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/AppointmentsRepository';
