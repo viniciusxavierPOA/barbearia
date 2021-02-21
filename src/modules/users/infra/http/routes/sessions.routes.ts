@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import SessionsController from '../controllers/SessionsController';
-import {container} from 'tsyringe';
 
 const sessionsRouter = Router();
 
